@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Question...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #0b0f19; /* Dark cyberpunk style */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 20px;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+
+        .btn-container {
+            position: relative;
+            width: 300px;
+            height: 150px;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        #yesBtn {
+            background-color: #00ffcc;
+            color: #0b0f19;
+            box-shadow: 0 0 15px #00ffcc;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+
+        #noBtn {
+            background-color: #ff0055;
+            color: #ffffff;
+            box-shadow: 0 0 15px #ff0055;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            /* Critical for mobile smooth movement */
+            touch-action: none; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will በዚ ሳምንት PROMOTION ትሰራልኛለህ? 👀</h1>
+
+    <div class="btn-container">
+        <button id="yesBtn" onclick="celebrate()">YES!</button>
+        <button id="noBtn" onmouseover="moveButton()" ontouchstart="moveButton()">NO</button>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+
+        function moveButton() {
+            // Get the width and height of the screen, leaving a small margin
+            const maxWidth = window.innerWidth - noBtn.offsetWidth - 20;
+            const maxHeight = window.innerHeight - noBtn.offsetHeight - 20;
+
+            // Generate random positions anywhere on the screen
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight);
+
+            // Change the position to absolute and move it away from the container
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        function celebrate() {
+            alert("THANK YOU! I knew you were a real one! 😁 Sending you to the channel now...");
+            // Replace the URL below with your actual Telegram channel link
+            window.location.href = "https://t.me/JK_FREENET"; 
+        }
+    </script>
+
+</body>
+</html>
